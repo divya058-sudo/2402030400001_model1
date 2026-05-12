@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Flex vs Grid</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Segoe UI, sans-serif;
+}
+
+body{
+    background:#eef2f7;
+    padding:40px;
+}
+
+/* HEADING */
+
+.main-title{
+    text-align:center;
+    margin-bottom:50px;
+    font-size:40px;
+    color:#222;
+}
+
+/* COMMON */
+
+.section{
+    margin-bottom:70px;
+}
+
+.section h2{
+    margin-bottom:25px;
+    color:#333;
+    border-left: 6px solid #2563eb;
+    padding-left:12px;
+}
+
+/* FLEXBOX */
+
+.flex-container{
+    display:flex;
+    justify-content:center;
+    gap:25px;
+    flex-wrap:wrap;
+}
+
+.flex-card{
+    width:220px;
+    background:white;
+    padding:25px;
+    border-radius:15px;
+    text-align:center;
+    box-shadow:0 5px 15px rgba(0,0,0,0.1);
+    transition:0.4s;
+}
+
+.flex-card h3{
+    margin-bottom:12px;
+    color:#2563eb;
+}
+
+.flex-card p{
+    color:#666;
+    line-height:1.5;
+}
+
+/* FLEX HOVER */
+
+.flex-card:hover{
+    transform:translateY(-10px);
+    background:#2563eb;
+}
+
+.flex-card:hover h3,
+.flex-card:hover p{
+    color:white;
+}
+
+/* GRID */
+
+.grid-container{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:25px;
+}
+
+.grid-card{
+    background:white;
+    padding:25px;
+    border-radius:15px;
+    text-align:center;
+    box-shadow:0 5px 15px rgba(0,0,0,0.1);
+    transition:0.4s;
+}
+
+.grid-card h3{
+    margin-bottom:12px;
+    color:#16a34a;
+}
+
+.grid-card p{
+    color:#666;
+    line-height:1.5;
+}
+
+/* GRID HOVER */
+
+.grid-card:hover{
+    transform:scale(1.05);
+    background:#16a34a;
+}
+
+.grid-card:hover h3,
+.grid-card:hover p{
+    color:white;
+}
+
+</style>
+</head>
+
+<body>
+
+<h1 class="main-title">Flexbox and Grid Layout</h1>
+
+<!-- FLEXBOX -->
+
+<div class="section">
+
+    <h2>Flexbox Layout</h2>
+
+    <div class="flex-container">
+
+        <div class="flex-card">
+            <h3>Easy Alignment</h3>
+            <p>Flexbox helps align items horizontally and vertically with less code.</p>
+        </div>
+
+        <div class="flex-card">
+            <h3>Responsive Row</h3>
+            <p>Items automatically adjust in rows using flex-wrap property.</p>
+        </div>
+
+        <div class="flex-card">
+            <h3>Modern UI</h3>
+            <p>Used in navbars, menus, buttons, cards and many modern layouts.</p>
+        </div>
+
+    </div>
+
+</div>
+
+<!-- GRID -->
+
+<div class="section">
+
+    <h2>Grid Layout</h2>
+
+    <div class="grid-container">
+
+        <div class="grid-card">
+            <h3>Two Dimensions</h3>
+            <p>Grid controls rows and columns together for better page layouts.</p>
+        </div>
+
+        <div class="grid-card">
+            <h3>Perfect Structure</h3>
+            <p>Useful for dashboards, galleries, projects and full websites.</p>
+        </div>
+
+        <div class="grid-card">
+            <h3>Auto Responsive</h3>
+            <p>Grid can automatically create responsive columns using auto-fit.</p>
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+</html>
