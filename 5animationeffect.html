@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Boat Floating Animation</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    height:100px;
+    overflow:hidden;
+    background:linear-gradient(to top,#3c99d3,#00f2fe);
+}
+
+/* Sky */
+.sky{
+    position:absolute;
+    width:100%;
+    height:70%;
+    background:linear-gradient(to bottom,#87ceeb,#bdefff);
+}
+
+/* Sun */
+.sun{
+    position:absolute;
+    top:40px;
+    right:80px;
+    width:100px;
+    height:100px;
+    background:gold;
+    border-radius:50px;
+    box-shadow:0 0 40px yellow;
+}
+
+/* Clouds */
+.cloud{
+    position:absolute;
+    width:140px;
+    height:60px;
+    background:white;
+    border-radius:50px;
+    animation:cloudMove 20s linear infinite;
+}
+
+.cloud::before,
+.cloud::after{
+    content:"";
+    position:absolute;
+    background:white;
+    border-radius:50%;
+}
+
+.cloud::before{
+    width:70px;
+    height:70px;
+    top:-30px;
+    left:15px;
+}
+
+.cloud::after{
+    width:80px;
+    height:80px;
+    top:-40px;
+    right:15px;
+}
+
+.cloud1{
+    top:80px;
+    left:-200px;
+}
+
+.cloud2{
+    top:170px;
+    left:-300px;
+    transform:scale(0.8);
+    animation-duration:28s;
+}
+
+@keyframes cloudMove{
+    from{
+        transform:translateX(0);
+    }
+    to{
+        transform:translateX(1500px);
+    }
+}
+
+/* River */
+.river{
+    position:absolute;
+    bottom:0;
+    width:100%;
+    height:40%;
+    background:#1e90ff;
+    overflow:hidden;
+}
+
+/* Water waves */
+.wave{
+    position:absolute;
+    width:200%;
+    height:100%;
+    background:rgba(255,255,255,0.15);
+    border-radius:40%;
+    animation:waveMove 8s linear infinite;
+}
+
+.wave2{
+    animation-duration:12s;
+    opacity:0.4;
+}
+
+@keyframes waveMove{
+    from{
+        transform:translateX(0);
+    }
+    to{
+        transform:translateX(-50%);
+    }
+}
+
+/* Boat */
+.boat{
+    position:absolute;
+    bottom:120px;
+    left:-250px;
+    width:220px;
+    height:100px;
+    animation:
+        boatMove 18s linear infinite,
+        float 3s ease-in-out infinite;
+}
+
+/* Boat body */
+.boat-body{
+    position:absolute;
+    bottom:0;
+    width:220px;
+    height:60px;
+    background:#5c4033;
+    border-radius:0 0 80px 80px;
+}
+
+/* Mast */
+.mast{
+    position:absolute;
+    bottom:60px;
+    left:105px;
+    width:8px;
+    height:120px;
+    background:#222;
+}
+
+/* Sail */
+.sail{
+    position:absolute;
+    bottom:90px;
+    left:112px;
+    width:0;
+    height:0;
+    border-left:0px solid transparent;
+    border-right:80px solid transparent;
+    border-bottom:120px solid white;
+}
+
+/* Boat move */
+@keyframes boatMove{
+    from{
+        left:-250px;
+    }
+    to{
+        left:120%;
+    }
+}
+
+/* Floating effect */
+@keyframes float{
+    0%{
+        transform:translateY(0px) rotate(0deg);
+    }
+    50%{
+        transform:translateY(-10px) rotate(1deg);
+    }
+    100%{
+        transform:translateY(0px) rotate(0deg);
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="sky">
+    <div class="sun"></div>
+
+    <div class="cloud cloud1"></div>
+    <div class="cloud cloud2"></div>
+</div>
+
+<div class="river">
+    <div class="wave"></div>
+    <div class="wave wave2"></div>
+</div>
+
+<div class="boat">
+
+    <div class="mast"></div>
+
+    <div class="sail"></div>
+
+    <div class="boat-body"></div>
+
+</div>
+
+</body>
+</html>
