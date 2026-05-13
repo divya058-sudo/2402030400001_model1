@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Custom Grid Layout</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+body{
+    min-height:100vh;
+
+    display:grid;
+
+    grid-template-areas:
+        "header header"
+        "main box1"
+        "main box2"
+        "main box3"
+        "footer footer";
+
+    grid-template-columns:2fr 1fr;
+
+    grid-template-rows:
+        80px
+        1fr
+        1fr
+        1fr
+        70px;
+
+    gap:10px;
+
+    background:#e2e8f0;
+    padding:10px;
+}
+
+/* COMMON STYLE */
+
+section,
+header,
+footer{
+    border-radius:15px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:28px;
+    color:white;
+    font-weight:bold;
+}
+
+/* HEADER */
+
+header{
+    grid-area:header;
+    background:#2563eb;
+}
+
+/* MAIN */
+
+.main{
+    grid-area:main;
+    background:#0f172a;
+    min-height:400px;
+}
+
+/* RIGHT BOXES */
+
+.box1{
+    grid-area:box1;
+    background:#ec4899;
+}
+
+.box2{
+    grid-area:box2;
+    background:#14b8a6;
+}
+
+.box3{
+    grid-area:box3;
+    background:#f59e0b;
+}
+
+/* FOOTER */
+
+footer{
+    grid-area:footer;
+    background:#1463e3;
+}
+
+/* HOVER EFFECT */
+
+.main:hover,
+.box1:hover,
+.box2:hover,
+.box3:hover{
+    transform:scale(1.02);
+    transition:0.3s;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:800px){
+
+    body{
+
+        grid-template-areas:
+            "header"
+            "main"
+            "box1"
+            "box2"
+            "box3"
+            "footer";
+
+        grid-template-columns:1fr;
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+    HEADER
+</header>
+
+<section class="main">
+    MAIN CONTENT
+</section>
+
+<section class="box1">
+    HTML
+</section>
+
+<section class="box2">
+    CSS
+</section>
+
+<section class="box3">
+    javascript
+</section>
+
+<footer>
+    FOOTER
+</footer>
+
+</body>
+</html>
