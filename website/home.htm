@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Talent Hunt Show</title>
+<link rel="stylesheet" href="navbar.css">
+
+<style>
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: Arial, sans-serif;
+    background: #0f0f0f;
+    color: white;
+    overflow-x: hidden;
+}
+
+/* ===== NAVBAR ===== */
+
+
+/* ===== HERO ===== */
+
+.hero{
+    min-height: 100vh;
+
+    padding-top: 120px;
+
+    background:
+    linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.8)),
+    url("https://images.unsplash.com/photo-1503095396549-807759245b35?q=80&w=1200&auto=format&fit=crop");
+
+    background-size: cover;
+    background-position: center;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.hero-content{
+    width: 90%;
+}
+
+.hero-content h1{
+    font-size: 70px;
+    color: gold;
+    margin-bottom: 20px;
+}
+
+.hero-content p{
+    font-size: 24px;
+    margin-bottom: 30px;
+}
+
+.hero-content button{
+    padding: 15px 35px;
+    border: none;
+    border-radius: 10px;
+    background: linear-gradient(45deg,hotpink,deeppink);
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.hero-content button:hover{
+    transform: scale(1.08);
+}
+
+/* ===== COMMON GRID ===== */
+
+.stats,
+.categories,
+.judges,
+.contestants{
+
+    width: 90%;
+
+    margin: 70px auto;
+
+    display: grid;
+
+    grid-template-columns:
+    repeat(auto-fit,minmax(250px,1fr));
+
+    gap: 25px;
+}
+
+/* ===== BOXES ===== */
+
+.stat-box,
+.card,
+.judge-card,
+.contestant-card{
+
+    background: #1a1a1a;
+
+    border-radius: 15px;
+
+    overflow: hidden;
+
+    transition: 0.3s;
+}
+
+.stat-box,
+.card{
+    padding: 35px;
+    text-align: center;
+}
+
+.stat-box:hover,
+.card:hover,
+.judge-card:hover,
+.contestant-card:hover{
+
+    transform: translateY(-10px);
+
+    box-shadow: 0px 0px 20px hotpink;
+}
+
+.stat-box h2{
+    color: gold;
+    font-size: 40px;
+    margin-bottom: 10px;
+}
+
+.card h2{
+    color: hotpink;
+    margin-bottom: 15px;
+}
+
+/* ===== SECTION TITLE ===== */
+
+.section-title{
+    text-align: center;
+    color: gold;
+    font-size: 42px;
+    margin-top: 70px;
+}
+
+/* ===== IMAGES ===== */
+
+img{
+    width: 100%;
+    display: block;
+}
+
+.judge-card img{
+    height: 320px;
+    object-fit: cover;
+}
+
+.contestant-card img{
+    height: 250px;
+    object-fit: cover;
+}
+
+/* ===== CONTENT ===== */
+
+.judge-info,
+.contestant-info{
+    padding: 20px;
+}
+
+.judge-info h3{
+    color: gold;
+}
+
+.contestant-info h3{
+    color: hotpink;
+}
+
+/* ===== BUTTON ===== */
+
+.vote-btn{
+    margin-top: 15px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    background: gold;
+    color: black;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+/* ===== COUNTDOWN ===== */
+
+.countdown{
+    width: 90%;
+    margin: 80px auto;
+    padding: 50px 20px;
+    background: #1b1b1b;
+    border-radius: 20px;
+    text-align: center;
+}
+
+.countdown h1{
+    color: gold;
+    margin-bottom: 30px;
+    font-size: 45px;
+}
+
+.timer{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.time-box{
+    background: #111;
+    padding: 20px;
+    width: 120px;
+    border-radius: 15px;
+}
+
+.time-box h2{
+    color: hotpink;
+    font-size: 40px;
+}
+
+/* ===== CTA ===== */
+
+.cta{
+    width: 90%;
+    margin: 80px auto;
+    padding: 60px 20px;
+    text-align: center;
+    border-radius: 20px;
+    background: linear-gradient(45deg,deeppink,hotpink);
+}
+
+.cta h1{
+    font-size: 45px;
+    margin-bottom: 20px;
+}
+
+.cta p{
+    font-size: 20px;
+    margin-bottom: 30px;
+}
+
+.cta button{
+    padding: 15px 35px;
+    border: none;
+    border-radius: 10px;
+    background: white;
+    color: deeppink;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+/* ===== FOOTER ===== */
+
+footer{
+    background: black;
+    text-align: center;
+    padding: 30px;
+    margin-top: 70px;
+}
+
+/* ===== MOBILE ===== */
+
+@media(max-width:768px){
+
+    nav{
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    nav ul{
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .hero-content h1{
+        font-size: 42px;
+    }
+
+    .hero-content p{
+        font-size: 18px;
+    }
+
+    .section-title{
+        font-size: 32px;
+    }
+
+    .countdown h1,
+    .cta h1{
+        font-size: 32px;
+    }
+
+}
+</style>
+</head>
+<body>
+
+<!-- Navbar -->
+
+<nav>
+
+<div class="logo">
+Talent Hunt
+</div>
+
+
+
+<div class="logo">
+Talent Hunt
+</div>
+
+<ul>
+<li><a href="home.htm">Home</a></li>
+<li><a href="gallery.html">Gallery</a></li>
+<li><a href="login.html">Login</a></li>
+<li><a href="dynamicform.html">Apply Now</a></li>
+</ul>
+
+</nav>
+
+<!-- Hero -->
+
+<section class="hero">
+
+<div class="hero-content">
+
+<h1>India's Biggest Talent Stage</h1>
+
+<p>
+Dance • Sing • Perform • Become Famous
+</p>
+
+<button onclick="window.location.href='apply.html'">
+Apply Now
+</button>
+</div>
+
+</section>
+
+<!-- Stats -->
+
+<section class="stats">
+
+<div class="stat-box">
+<h2>25K+</h2>
+<p>Participants</p>
+</div>
+
+<div class="stat-box">
+<h2>120+</h2>
+<p>Cities</p>
+</div>
+
+<div class="stat-box">
+<h2>50M+</h2>
+<p>Audience Votes</p>
+</div>
+
+<div class="stat-box">
+<h2>15</h2>
+<p>Celebrity Judges</p>
+</div>
+
+</section>
+
+<!-- Categories -->
+
+<h1 class="section-title">
+Talent Categories
+</h1>
+
+<section class="categories">
+
+<div class="card">
+<h2>🎤 Singing</h2>
+<p>Show your magical singing skills.</p>
+</div>
+
+<div class="card">
+<h2>💃 Dancing</h2>
+<p>Perform energetic dance routines.</p>
+</div>
+
+<div class="card">
+<h2>🎭 Acting</h2>
+<p>Express emotions and creativity.</p>
+</div>
+
+<div class="card">
+<h2>🎸 Music</h2>
+<p>Play instruments beautifully.</p>
+</div>
+
+</section>
+
+<!-- Judges -->
+
+<h1 class="section-title">
+Celebrity Judges
+</h1>
+
+<section class="judges">
+
+<div class="judge-card">
+
+<img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=1000&auto=format&fit=crop">
+
+<div class="judge-info">
+<h3>Rahul Verma</h3>
+<p>Music Director</p>
+</div>
+
+</div>
+
+<div class="judge-card">
+
+<img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=1000&auto=format&fit=crop">
+
+<div class="judge-info">
+<h3>Priya Sharma</h3>
+<p>Dance Choreographer</p>
+</div>
+
+</div>
+
+<div class="judge-card">
+
+<img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=1000&auto=format&fit=crop">
+
+<div class="judge-info">
+<h3>Aryan Kapoor</h3>
+<p>Actor & Performer</p>
+</div>
+
+</div>
+
+</section>
+
+<!-- Contestants -->
+
+<h1 class="section-title">
+Trending Contestants
+</h1>
+
+<section class="contestants">
+
+<div class="contestant-card">
+
+<img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=1000&auto=format&fit=crop">
+
+<div class="contestant-info">
+
+<h3>Ananya</h3>
+
+<p>Classical Singer from Mumbai</p>
+
+<button class="vote-btn">
+Vote Now
+</button>
+
+</div>
+
+</div>
+
+<div class="contestant-card">
+
+<img src="https://images.unsplash.com/photo-1504593811423-6dd665756598?q=80&w=1000&auto=format&fit=crop">
+
+<div class="contestant-info">
+
+<h3>Rohan</h3>
+
+<p>Hip Hop Dancer from Delhi</p>
+
+<button class="vote-btn">
+Vote Now
+</button>
+
+</div>
+
+</div>
+
+<div class="contestant-card">
+
+<img src="https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?q=80&w=1000&auto=format&fit=crop">
+
+<div class="contestant-info">
+
+<h3>Meera</h3>
+
+<p>Violin Artist from Gujarat</p>
+
+<button class="vote-btn">
+Vote Now
+</button>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- Countdown -->
+
+<section class="countdown">
+
+<h1>Audition Starts In</h1>
+
+<div class="timer">
+
+<div class="time-box">
+<h2 id="days">00</h2>
+<p>Days</p>
+</div>
+
+<div class="time-box">
+<h2 id="hours">00</h2>
+<p>Hours</p>
+</div>
+
+<div class="time-box">
+<h2 id="minutes">00</h2>
+<p>Minutes</p>
+</div>
+
+<div class="time-box">
+<h2 id="seconds">00</h2>
+<p>Seconds</p>
+</div>
+
+</div>
+
+</section>
+
+<!-- CTA -->
+
+<section class="cta">
+
+<h1>
+Your Talent Deserves A Big Stage
+</h1>
+
+<p>
+Upload your audition and become India's next superstar.
+</p>
+
+<button onclick="window.location.href='dynamicform.html'">
+Apply Now
+</button>
+</section>
+
+<!-- Footer -->
+
+<footer>
+
+<p>
+© 2026 Talent Hunt Show | All Rights Reserved
+</p>
+
+</footer>
+
+<script>
+
+// Set Audition Date
+
+const auditionDate =
+new Date("June 30, 2026 10:00:00").getTime();
+
+
+// Countdown Timer
+
+const countdown = setInterval(function(){
+
+    const now = new Date().getTime();
+
+    const distance = auditionDate - now;
+
+
+    // Time Calculations
+
+    const days =
+    Math.floor(distance / (1000 * 60 * 60 * 24));
+
+    const hours =
+    Math.floor(
+        (distance % (1000 * 60 * 60 * 24))
+        / (1000 * 60 * 60)
+    );
+
+    const minutes =
+    Math.floor(
+        (distance % (1000 * 60 * 60))
+        / (1000 * 60)
+    );
+
+    const seconds =
+    Math.floor(
+        (distance % (1000 * 60))
+        / 1000
+    );
+
+
+    // Display Countdown
+
+    document.getElementById("days").innerText =
+    days;
+
+    document.getElementById("hours").innerText =
+    hours;
+
+    document.getElementById("minutes").innerText =
+    minutes;
+
+    document.getElementById("seconds").innerText =
+    seconds;
+
+
+    // Countdown End
+
+    if(distance < 0){
+
+        clearInterval(countdown);
+
+        document.querySelector(".timer").innerHTML =
+        "<h2>Audition Started!</h2>";
+
+    }
+
+},1000);
+
+</script>
+
+</body>
+</html>

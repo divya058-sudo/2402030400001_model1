@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Talent Hunt Login</title>
+<link rel="stylesheet" href="navbar.css">
+<style>
+    footer{
+      
+    color: white;
+    text-align: center;
+    padding: 15px 0;
+    margin-top: 50px;
+}
+
+/* ===== LOGIN PAGE ===== */
+
+body{
+    background: #88587a;
+    color: white;
+}
+
+/* LOGIN SECTION */
+
+.login-container{
+
+    min-height: 100vh;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    padding-top: 90px;
+}
+
+/* LOGIN BOX */
+
+.login-box{
+
+    width: 380px;
+
+    background: #1a1a1a;
+
+    padding: 40px;
+
+    border-radius: 20px;
+
+    box-shadow: 0px 0px 20px rgba(152, 121, 137, 0.3);
+
+    text-align: center;
+    margin:auto;
+    margin-bottom: 100px;
+    margin-top: 50px;
+}
+
+.login-box h1{
+    color: gold;
+    margin-bottom: 25px;
+}
+
+/* INPUTS */
+
+.login-box input{
+
+    width: 100%;
+
+    padding: 14px;
+
+    margin: 12px 0;
+
+    border: none;
+
+    border-radius: 8px;
+
+    background: #2b2b2b;
+
+    color: white;
+
+    font-size: 16px;
+}
+
+/* BUTTON */
+
+.login-box button{
+
+    width: 100%;
+
+    padding: 14px;
+
+    border: none;
+
+    border-radius: 8px;
+
+    background: linear-gradient(45deg,hotpink,deeppink);
+
+    color: white;
+
+    font-size: 17px;
+
+    cursor: pointer;
+
+    margin-top: 15px;
+}
+
+/* TEXT */
+
+.login-box p{
+    margin-top: 20px;
+}
+
+.login-box a{
+    color: gold;
+    text-decoration: none;
+}
+</style>
+</head>
+<body>
+<nav>
+
+<div class="logo">
+Talent Hunt
+</div>
+
+<ul>
+<li><a href="home.htm">Home</a></li>
+<li><a href="gallery.html">Gallery</a></li>
+<li><a href="login.html">Login</a></li>
+<li><a href="dynamicform.html">Apply Now</a></li>
+</ul>
+
+</nav>
+<div class="login-box">
+
+<h1>Talent Hunt</h1>
+
+<p>
+Login to continue your audition journey
+</p>
+
+<form id="loginForm">
+
+<!-- Email -->
+
+<div class="input-group">
+
+<label>Email Address</label>
+
+<input 
+type="email"
+id="email"
+placeholder="Enter your email"
+required>
+
+<span class="error" id="emailError"></span>
+
+</div>
+
+<!-- Password -->
+
+<div class="input-group">
+
+<label>Password</label>
+
+<input 
+type="password"
+id="password"
+placeholder="Enter password"
+required>
+
+<span class="error" id="passwordError"></span>
+
+</div>
+
+<!-- Options -->
+
+<div class="options">
+
+<label>
+<input type="checkbox">
+Remember Me
+</label>
+
+<a href="forget.html">
+Forgot Password?
+</a>
+
+</div>
+
+<!-- Button -->
+
+<button type="submit">
+Login
+</button>
+
+</form>
+
+<!-- Social Login -->
+
+<div class="social-login">
+
+<p>Or continue with</p>
+
+<div class="social-buttons">
+
+<button>
+Google
+</button>
+
+
+</div>
+
+</div>
+
+<!-- Register -->
+
+<div class="register">
+
+<p>
+Don't have an account?
+<a href="dynamicform.html">
+Apply Now
+</a>
+</p>
+
+</div>
+
+</div>
+<footer>
+
+<p>
+© 2026 Talent Hunt Show | All Rights Reserved
+</p>
+
+</footer>
+
+<script>
+
+// EMAIL VALIDATION
+
+const email =
+document.getElementById("email");
+
+const emailError =
+document.getElementById("emailError");
+
+email.addEventListener("input", function(){
+
+    const pattern =
+    /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if(!pattern.test(email.value)){
+
+        emailError.innerText =
+        "Enter valid email";
+    }
+    else{
+
+        emailError.innerText = "";
+    }
+
+});
+
+
+// PASSWORD VALIDATION
+
+const password =
+document.getElementById("password");
+
+const passwordError =
+document.getElementById("passwordError");
+
+password.addEventListener("input", function(){
+
+    if(password.value.length < 6){
+
+        passwordError.innerText =
+        "Password must be at least 6 characters";
+    }
+    else{
+
+        passwordError.innerText = "";
+    }
+
+});
+
+
+// FORM SUBMIT
+
+const form =
+document.getElementById("loginForm");
+
+form.addEventListener("submit", function(e){
+
+    if(
+        emailError.innerText !== "" ||
+        passwordError.innerText !== ""
+    ){
+
+        e.preventDefault();
+
+        alert("Please fix errors");
+
+    }
+
+});
+
+</script>
+
+</body>
+</html>

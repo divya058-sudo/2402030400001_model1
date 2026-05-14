@@ -1,0 +1,81 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body{
+    overflow-x: hidden;
+    font-family: Arial, sans-serif;
+}
+
+/* NAVBAR */
+
+nav{
+
+    position: sticky;
+
+    top: 0;
+
+    width: 100%;
+
+    background: black;
+
+    padding: 20px 5%;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    z-index: 999;
+}
+
+/* LOGO */
+
+.logo{
+    color: gold;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+/* LINKS */
+
+nav ul{
+    display: flex;
+    gap: 25px;
+    list-style: none;
+}
+
+nav ul li a{
+
+    color: white;
+
+    text-decoration: none;
+
+    transition: 0.3s;
+
+    font-size: 17px;
+}
+
+nav ul li a:hover{
+    color: hotpink;
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+    nav{
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    nav ul{
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+}
