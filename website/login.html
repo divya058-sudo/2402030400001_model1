@@ -35,7 +35,24 @@ body{
 
     padding-top: 90px;
 }
+.options{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-top:10px;
+    font-size:14px;
+}
 
+.remember{
+    display:flex;
+    align-items:center;
+    gap: 2px;
+}
+
+.remember input{
+    width:auto;
+    margin:0;
+}
 /* LOGIN BOX */
 
 .login-box{
@@ -121,7 +138,7 @@ body{
 <nav>
 
 <div class="logo">
-Talent Hunt
+Performous
 </div>
 
 <ul>
@@ -134,7 +151,7 @@ Talent Hunt
 </nav>
 <div class="login-box">
 
-<h1>Talent Hunt</h1>
+<h1>Performous</h1>
 
 <p>
 Login to continue your audition journey
@@ -175,19 +192,24 @@ required>
 </div>
 
 <!-- Options -->
-
 <div class="options">
 
-<label>
-<input type="checkbox">
+<div class="remember">
+
+<input type="checkbox" id="remember">
+
+<label for="remember">
 Remember Me
 </label>
+
+</div>
 
 <a href="forget.html">
 Forgot Password?
 </a>
 
 </div>
+
 
 <!-- Button -->
 

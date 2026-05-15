@@ -3,177 +3,211 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Talent Competition Registration</title>
 <link rel="stylesheet" href="navbar.css">
 
 <style>
-    footer{
-    width: 100%;
-
-    text-align: center;
-
-    margin-top: 40px;
-
-    padding: 20px 0;
-
-    color: white;
-}
-    
-
-    nav{
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 1000;
-}
 
 *{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
 
 body{
-    font-family: Arial, sans-serif;
-    background: linear-gradient(135deg,#ff9a9e,#fad0c4,#fbc2eb);
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 30px;
-    margin-top: 50px;
-     font-family: Arial, sans-serif;
-    background: linear-gradient(135deg,#ff9a9e,#fad0c4,#fbc2eb);
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 30px;
-    margin-top: 50px;
+    font-family:Arial,sans-serif;
+    background:linear-gradient(135deg,#ff9a9e,#fad0c4,#fbc2eb);
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    padding:30px;
 }
 
+/* ================= NAVBAR ================= */
+
+nav{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    background:#222;
+    padding:15px 40px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    z-index:1000;
+}
+
+.logo{
+    color:white;
+    font-size:24px;
+    font-weight:bold;
+}
+
+nav ul{
+    display:flex;
+    list-style:none;
+    gap:20px;
+}
+
+nav ul li a{
+    color:white;
+    text-decoration:none;
+    font-weight:bold;
+    transition:0.3s;
+}
+
+nav ul li a:hover{
+    color:#ff4081;
+}
+
+/* ================= CONTAINER ================= */
+
 .container{
-    width: 100%;
-    max-width: 750px;
-    background: white;
-    padding: 35px;
-    border-radius: 18px;
-    box-shadow: 0px 8px 25px rgba(0,0,0,0.2);
+    width:100%;
+    max-width:750px;
+    background:white;
+    padding:35px;
+    border-radius:18px;
+    box-shadow:0px 8px 25px rgba(0,0,0,0.2);
+    margin-top:90px;
 }
 
 h1{
-    text-align: center;
-    color: #ff4081;
-    margin-bottom: 10px;
+    text-align:center;
+    color:#ff4081;
+    margin-bottom:10px;
 }
 
 .subtitle{
-    text-align: center;
-    color: gray;
-    margin-bottom: 25px;
+    text-align:center;
+    color:gray;
+    margin-bottom:25px;
 }
 
 form{
-    display: grid;
-    gap: 18px;
+    display:grid;
+    gap:18px;
 }
 
 .row{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 15px;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:15px;
 }
 
 .input-group{
-    display: flex;
-    flex-direction: column;
+    display:flex;
+    flex-direction:column;
 }
 
 label{
-    font-weight: bold;
-    margin-bottom: 7px;
-    color: #444;
+    font-weight:bold;
+    margin-bottom:7px;
+    color:#444;
 }
 
 input,
 select,
 textarea{
-    padding: 12px;
-    border: 2px solid #ddd;
-    border-radius: 10px;
-    outline: none;
-    transition: 0.3s;
-    font-size: 15px;
+    padding:12px;
+    border:2px solid #ddd;
+    border-radius:10px;
+    outline:none;
+    transition:0.3s;
+    font-size:15px;
 }
 
 input:focus,
 select:focus,
 textarea:focus{
-    border-color: #ff4081;
-    box-shadow: 0px 0px 8px rgba(255,64,129,0.4);
+    border-color:#ff4081;
+    box-shadow:0px 0px 8px rgba(255,64,129,0.4);
 }
 
 textarea{
-    resize: none;
+    resize:none;
 }
 
 .file-box{
-    border: 2px dashed #ff4081;
-    padding: 15px;
-    border-radius: 12px;
-    background: #fff7fb;
+    border:2px dashed #ff4081;
+    padding:15px;
+    border-radius:12px;
+    background:#fff7fb;
 }
 
 .preview{
-    margin-top: 15px;
+    margin-top:15px;
 }
 
 audio,
 video{
-    width: 100%;
-    margin-top: 10px;
-    border-radius: 10px;
+    width:100%;
+    margin-top:10px;
+    border-radius:10px;
 }
 
 button{
-    padding: 14px;
-    border: none;
-    border-radius: 12px;
-    background: linear-gradient(45deg,#ff4081,#ff6ec7);
-    color: white;
-    font-size: 17px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: 0.3s;
+    padding:14px;
+    border:none;
+    border-radius:12px;
+    background:linear-gradient(45deg,#ff4081,#ff6ec7);
+    color:white;
+    font-size:17px;
+    font-weight:bold;
+    cursor:pointer;
+    transition:0.3s;
 }
 
 button:hover{
-    transform: translateY(-3px);
+    transform:translateY(-3px);
 }
 
 .error{
-    color: red;
-    font-size: 14px;
-    margin-top: 5px;
+    color:red;
+    font-size:14px;
+    margin-top:5px;
 }
+
+/* ================= FOOTER ================= */
+
+footer{
+    width:100%;
+    text-align:center;
+    margin-top:40px;
+    padding:20px 0;
+    color:white;
+}
+
+/* ================= RESPONSIVE ================= */
 
 @media(max-width:700px){
 
     .row{
-        grid-template-columns: 1fr;
+        grid-template-columns:1fr;
+    }
+
+    nav{
+        flex-direction:column;
+        gap:10px;
     }
 
 }
 
 </style>
 </head>
+
 <body>
-    <nav>
+
+<!-- ================= NAVBAR ================= -->
+
+<nav>
 
 <div class="logo">
-Talent Hunt
+Performous
 </div>
 
 <ul>
@@ -183,148 +217,237 @@ Talent Hunt
 <li><a href="dynamicform.html">Apply Now</a></li>
 </ul>
 
-</nav></div>
+</nav>
+
+<!-- ================= FORM ================= -->
 
 <div class="container">
 
-    <h1>🎤 Singing & Dancing Competition</h1>
-    <p class="subtitle">Register & Show Your Talent</p>
+<h1>🎤 Singing & Dancing Competition</h1>
 
-    <form id="competitionForm">
+<p class="subtitle">
+Register & Show Your Talent
+</p>
 
-        <div class="row">
+<form id="competitionForm">
 
-            <div class="input-group">
-                <label>Full Name</label>
-                <input type="text"  id="name" required >
-                <div class="error" id="nameError"></div>
-            </div>
+<div class="row">
 
-            <div class="input-group">
-                <label>Age</label>
-                <input type="number" id="age" required>
-                <div class="error" id="ageError"></div>
-            </div>
+<div class="input-group">
 
-        </div>
+<label>Full Name</label>
 
-        <div class="row">
+<input
+type="text"
+id="name"
+placeholder="Enter full name"
+required
+>
 
-            <div class="input-group">
-                <label>Email</label>
-                <input type="email" id="email" required>
-                <div class="error" id="emailError"></div>
-            </div>
-
-            <div class="input-group">
-                <label>Phone Number</label>
-                <input type="tel" id="phone" required>
-                <div class="error" id="phoneError"></div>
-            </div>
-
-        </div>
-
-        <div class="input-group">
-            <label>Competition Category</label>
-
-            <select id="category" required>
-                <option value="">Select Category</option>
-                <option>Singing</option>
-                <option>Dancing</option>
-                <option>Both</option>
-            </select>
-        </div>
-
-        <!-- Instagram Validation -->
-
-        <div class="input-group">
-
-            <label>Instagram Profile Link</label>
-
-            <input 
-                type="url"
-                id="instagram"
-                placeholder="https://instagram.com/username"
-                required
-            >
-
-            <span class="error" id="instaError"></span>
-
-        </div>
-
-        <!-- Audio Upload -->
-
-        <div class="file-box">
-
-            <div class="input-group">
-
-                <label>Upload Audio File</label>
-
-                <input 
-                    type="file"
-                    id="audioFile"
-                    accept=".mp3,.wav,.ogg"
-                >
-
-                <span class="error" id="audioError"></span>
-
-            </div>
-
-            <div class="preview">
-                <audio id="audioPreview" controls></audio>
-            </div>
-
-        </div>
-
-        <!-- Video Upload -->
-
-        <div class="file-box">
-
-            <div class="input-group">
-
-                <label>Upload Video File</label>
-
-                <input 
-                    type="file"
-                    id="videoFile"
-                    accept=".mp4,.webm,.mov"
-                >
-
-                <span class="error" id="videoError"></span>
-
-            </div>
-
-            <div class="preview">
-                <video id="videoPreview" controls height="250"></video>
-            </div>
-
-        </div>
-
-        <div class="input-group">
-
-            <label>About Your Talent</label>
-
-            <textarea rows="5"></textarea>
-
-        </div>
-
-        <button type="submit">
-            Submit Registration
-        </button>
-        <p style="text-align:center; margin-top:20px;">
-         Already have account?
-          <a href="login.html" style="color:gold;">
-               Login Here
-          </a>
-       </p>
-
-    </form>
-    
-    
-
-
+<div class="error" id="nameError"></div>
 
 </div>
+
+<div class="input-group">
+
+<label>Age</label>
+
+<input
+type="number"
+id="age"
+placeholder="Enter age"
+required
+>
+
+<div class="error" id="ageError"></div>
+
+</div>
+
+</div>
+
+<div class="row">
+
+<div class="input-group">
+
+<label>Email</label>
+
+<input
+type="email"
+id="email"
+placeholder="Enter email"
+required
+>
+
+<div class="error" id="emailError"></div>
+
+</div>
+
+<div class="input-group">
+
+<label>Phone Number</label>
+
+<input
+type="tel"
+id="phone"
+placeholder="Enter mobile number"
+required
+>
+
+<div class="error" id="phoneError"></div>
+
+</div>
+
+</div>
+
+<!-- CATEGORY -->
+
+<div class="input-group">
+
+<label>Competition Category</label>
+
+<select id="category" required>
+
+<option value="">Select Category</option>
+
+<option>Singing</option>
+
+<option>Dancing</option>
+
+<option>Both</option>
+
+</select>
+
+</div>
+
+<!-- FEES -->
+
+<div class="input-group">
+
+<label>Registration Fees</label>
+
+<input
+type="text"
+id="fees"
+readonly
+placeholder="Select category first"
+>
+
+</div>
+
+<!-- INSTAGRAM -->
+
+<div class="input-group">
+
+<label>Instagram Profile Link</label>
+
+<input
+type="url"
+id="instagram"
+placeholder="https://instagram.com/username"
+required
+>
+
+<div class="error" id="instaError"></div>
+
+</div>
+
+<!-- AUDIO -->
+
+<div class="file-box">
+
+<div class="input-group">
+
+<label>Upload Audio File</label>
+
+<input
+type="file"
+id="audioFile"
+accept=".mp3,.wav,.ogg"
+>
+
+<div class="error" id="audioError"></div>
+
+</div>
+
+<div class="preview">
+
+<audio id="audioPreview" controls></audio>
+
+</div>
+
+</div>
+
+<!-- VIDEO -->
+
+<div class="file-box">
+
+<div class="input-group">
+
+<label>Upload Video File</label>
+
+<input
+type="file"
+id="videoFile"
+accept=".mp4,.webm,.mov"
+>
+
+<div class="error" id="videoError"></div>
+
+</div>
+
+<div class="preview">
+
+<video
+id="videoPreview"
+controls
+height="250"
+></video>
+
+</div>
+
+</div>
+
+<!-- ABOUT -->
+
+<div class="input-group">
+
+<label>About Your Talent</label>
+
+<textarea
+rows="5"
+id="talent"
+placeholder="Tell us about your talent..."
+></textarea>
+
+</div>
+
+
+<!-- BUTTON -->
+
+<button type="submit">
+
+Submit Registration
+
+</button>
+
+<p style="text-align:center; margin-top:20px;">
+
+Already have account?
+
+<a href="login.html" style="color:#ff4081;">
+
+Login Here
+
+</a>
+
+</p>
+
+</form>
+
+</div>
+
+<!-- ================= FOOTER ================= -->
+
 <footer>
 
 <p>
@@ -332,59 +455,103 @@ Talent Hunt
 </p>
 
 </footer>
-<br>
 
+<!-- ================= JAVASCRIPT ================= -->
 
 <script>
-    
-// ================= NAME VALIDATION =================
 
-const nameInput = document.getElementById("name");
-const nameError = document.getElementById("nameError");
+// CATEGORY FEES
+
+const categorySelect =
+document.getElementById("category");
+
+const fees =
+document.getElementById("fees");
+
+categorySelect.addEventListener("change", function(){
+
+    if(categorySelect.value === "Singing"){
+
+        fees.value = "₹300";
+
+    }
+    else if(categorySelect.value === "Dancing"){
+
+        fees.value = "₹400";
+
+    }
+    else if(categorySelect.value === "Both"){
+
+        fees.value = "₹600";
+
+    }
+    else{
+
+        fees.value = "";
+
+    }
+
+});
+
+// NAME VALIDATION
+
+const nameInput =
+document.getElementById("name");
+
+const nameError =
+document.getElementById("nameError");
 
 nameInput.addEventListener("input", function(){
 
-    const namePattern = /^[A-Za-z ]{3,30}$/;
+    const namePattern =
+    /^[A-Za-z ]{3,30}$/;
 
     if(!namePattern.test(nameInput.value)){
 
         nameError.innerText =
-        "Only letters allowed (3-30 characters)";
+        "Only letters allowed";
+
     }
     else{
 
         nameError.innerText = "";
+
     }
 
 });
 
+// AGE VALIDATION
 
-// ================= AGE VALIDATION =================
+const ageInput =
+document.getElementById("age");
 
-const ageInput = document.getElementById("age");
-const ageError = document.getElementById("ageError");
+const ageError =
+document.getElementById("ageError");
 
 ageInput.addEventListener("input", function(){
 
-    const age = ageInput.value;
-
-    if(age < 5 || age > 60){
+    if(ageInput.value < 5 ||
+       ageInput.value > 60){
 
         ageError.innerText =
         "Age must be between 5 and 60";
+
     }
     else{
 
         ageError.innerText = "";
+
     }
 
 });
 
+// EMAIL VALIDATION
 
-// ================= EMAIL VALIDATION =================
+const emailInput =
+document.getElementById("email");
 
-const emailInput = document.getElementById("email");
-const emailError = document.getElementById("emailError");
+const emailError =
+document.getElementById("emailError");
 
 emailInput.addEventListener("input", function(){
 
@@ -394,39 +561,45 @@ emailInput.addEventListener("input", function(){
     if(!emailPattern.test(emailInput.value)){
 
         emailError.innerText =
-        "Enter valid email";
+        "Invalid Email";
+
     }
     else{
 
         emailError.innerText = "";
+
     }
 
 });
 
+// PHONE VALIDATION
 
-// ================= PHONE VALIDATION =================
+const phoneInput =
+document.getElementById("phone");
 
-const phoneInput = document.getElementById("phone");
-const phoneError = document.getElementById("phoneError");
+const phoneError =
+document.getElementById("phoneError");
 
 phoneInput.addEventListener("input", function(){
 
-    const phonePattern = /^[6-9]\d{9}$/;
+    const phonePattern =
+    /^[6-9]\d{9}$/;
 
     if(!phonePattern.test(phoneInput.value)){
 
         phoneError.innerText =
-        "Enter valid 10-digit number";
+        "Invalid Phone Number";
+
     }
     else{
 
         phoneError.innerText = "";
+
     }
 
 });
 
-
-// ================= INSTAGRAM VALIDATION =================
+// INSTAGRAM VALIDATION
 
 const instagram =
 document.getElementById("instagram");
@@ -442,17 +615,18 @@ instagram.addEventListener("input", function(){
     if(!instaPattern.test(instagram.value)){
 
         instaError.innerText =
-        "Enter valid Instagram link";
+        "Invalid Instagram Link";
+
     }
     else{
 
         instaError.innerText = "";
+
     }
 
 });
 
-
-// ================= AUDIO VALIDATION =================
+// AUDIO PREVIEW
 
 const audioFile =
 document.getElementById("audioFile");
@@ -460,42 +634,20 @@ document.getElementById("audioFile");
 const audioPreview =
 document.getElementById("audioPreview");
 
-const audioError =
-document.getElementById("audioError");
-
 audioFile.addEventListener("change", function(){
 
     const file = this.files[0];
 
     if(file){
 
-        const allowedAudio =
-        ["audio/mpeg","audio/wav","audio/ogg"];
-
-        if(!allowedAudio.includes(file.type)){
-
-            audioError.innerText =
-            "Only MP3, WAV, OGG allowed";
-
-            this.value = "";
-
-            audioPreview.src = "";
-        }
-        else{
-
-            audioError.innerText = "";
-
-            audioPreview.src =
-            URL.createObjectURL(file);
-
-        }
+        audioPreview.src =
+        URL.createObjectURL(file);
 
     }
 
 });
 
-
-// ================= VIDEO VALIDATION =================
+// VIDEO PREVIEW
 
 const videoFile =
 document.getElementById("videoFile");
@@ -503,64 +655,164 @@ document.getElementById("videoFile");
 const videoPreview =
 document.getElementById("videoPreview");
 
-const videoError =
-document.getElementById("videoError");
-
 videoFile.addEventListener("change", function(){
 
     const file = this.files[0];
 
     if(file){
 
-        const allowedVideo =
-        ["video/mp4","video/webm","video/quicktime"];
-
-        if(!allowedVideo.includes(file.type)){
-
-            videoError.innerText =
-            "Only MP4, WEBM, MOV allowed";
-
-            this.value = "";
-
-            videoPreview.src = "";
-        }
-        else{
-
-            videoError.innerText = "";
-
-            videoPreview.src =
-            URL.createObjectURL(file);
-
-        }
+        videoPreview.src =
+        URL.createObjectURL(file);
 
     }
 
 });
 
+// FORM SUBMIT
 
-// ================= FORM SUBMIT =================
 
-const form = document.getElementById("myForm");
+
+// FORM SUBMIT
+
+const form =
+document.getElementById("competitionForm");
 
 form.addEventListener("submit", function(e){
 
-    if(
-        nameError.innerText !== "" ||
-        ageError.innerText !== "" ||
-        emailError.innerText !== "" ||
-        phoneError.innerText !== "" ||
-        instaError.innerText !== ""
-    ){
+    e.preventDefault();
 
-        e.preventDefault();
+    const participantName =
+    document.getElementById("name").value;
 
-        alert("Please fix all errors");
+    const participantCategory =
+    document.getElementById("category").value;
+
+    const audio =
+    document.getElementById("audioFile").files[0];
+
+    const video =
+    document.getElementById("videoFile").files[0];
+
+    // GET OLD PARTICIPANTS
+
+    let participants =
+    JSON.parse(
+        localStorage.getItem("participants")
+    ) || [];
+
+    // AUDIO UPLOAD
+
+    if(audio){
+
+        if(audio.size > 1000000){
+
+            alert(
+            "Audio file must be below 1MB"
+            );
+
+            return;
+
+        }
+
+        const reader =
+        new FileReader();
+
+        reader.onload = function(event){
+
+            const participant = {
+
+                name: participantName,
+
+                category: participantCategory,
+
+                audio: event.target.result,
+
+                video: null
+
+            };
+
+            participants.push(participant);
+
+            localStorage.setItem(
+                "participants",
+                JSON.stringify(participants)
+            );
+
+            alert(
+            "Audio Uploaded Successfully"
+            );
+
+            window.location.href =
+            "gallery.html";
+
+        };
+
+        reader.readAsDataURL(audio);
+
+    }
+
+    // VIDEO UPLOAD
+
+    else if(video){
+
+        if(video.size > 3000000){
+
+            alert(
+            "Video file must be below 3MB"
+            );
+
+            return;
+
+        }
+
+        const reader2 =
+        new FileReader();
+
+        reader2.onload = function(event){
+
+            const participant = {
+
+                name: participantName,
+
+                category: participantCategory,
+
+                audio: null,
+
+                video: event.target.result
+
+            };
+
+            participants.push(participant);
+
+            localStorage.setItem(
+                "participants",
+                JSON.stringify(participants)
+            );
+
+            alert(
+            "Video Uploaded Successfully"
+            );
+
+            window.location.href =
+            "gallery.html";
+
+        };
+
+        reader2.readAsDataURL(video);
+
+    }
+
+    else{
+
+        alert(
+        "Please upload audio or video"
+        );
 
     }
 
 });
 
-
+</script>
 
 </script>
 
