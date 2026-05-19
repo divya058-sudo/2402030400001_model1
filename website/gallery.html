@@ -9,6 +9,88 @@
 <title>Talent Hunt Gallery</title>
 
 <style>
+    /* ================= SAFE RESPONSIVE ================= */
+
+@media(max-width:768px){
+
+    nav{
+
+        flex-direction:column;
+
+        gap:15px;
+
+        padding:15px;
+    }
+
+    nav ul{
+
+        flex-wrap:wrap;
+
+        justify-content:center;
+
+        gap:12px;
+    }
+
+    .hero h1{
+
+        font-size:38px;
+    }
+
+    .hero p{
+
+        font-size:18px;
+    }
+
+    .section-title{
+
+        font-size:32px;
+    }
+
+    .gallery{
+
+        width:95%;
+    }
+
+    .gallery-card video{
+
+        height:220px;
+    }
+
+    .reaction-box{
+
+        flex-wrap:wrap;
+    }
+
+}
+
+@media(max-width:480px){
+
+    .hero h1{
+
+        font-size:30px;
+    }
+
+    .hero p{
+
+        font-size:16px;
+    }
+
+    .logo{
+
+        font-size:22px;
+    }
+
+}
+    .bonus-line{
+
+    margin-top:15px;
+
+    color:hotpink;
+
+    font-size:20px;
+
+    font-weight:bold;
+}
 
 /* ===== YOUR ORIGINAL CSS (UNCHANGED) ===== */
 
@@ -235,10 +317,14 @@ footer{
 <h1>Performance Gallery</h1>
 <p>Watch amazing talent performances</p>
 </div>
+
 </section>
 
 <!-- TITLE -->
 <h1 class="section-title">Participant Performances</h1>
+<p class="bonus-line">
+🔥 Quiz Winners Can Give Multiple Likes
+</p>
 
 <section class="gallery" id="galleryContainer"></section>
 
@@ -310,6 +396,9 @@ participants.forEach(function(item, index){
                 <button>
                     👁 ${item.views} Views
                 </button>
+                <button class="delete-btn" data-index="${index}">
+               🗑 Delete
+                </button>
 
             </div>
 
@@ -329,25 +418,79 @@ participants.forEach(function(item, index){
     `;
 
 });
+console.log(
+localStorage.getItem("superLikes")
+);
 
 // LIKE SYSTEM
+/* LIKE SYSTEM */
+
 document.addEventListener("click", function(e){
 
     if(e.target.closest(".like-btn")){
 
-        let btn = e.target.closest(".like-btn");
-        let index = btn.getAttribute("data-index");
+        let btn =
+        e.target.closest(".like-btn");
 
-        participants[index].likes++;
+        let index =
+        btn.getAttribute("data-index");
 
-        localStorage.setItem("participants", JSON.stringify(participants));
+        /* GET BONUS SCORE */
+
+        let superLikes =
+        parseInt(
+        localStorage.getItem("superLikes")
+        );
+
+        /* CHECK BONUS USED */
+
+        let bonusUsed =
+        localStorage.getItem("bonusUsed");
+
+        /* FIRST TIME BONUS */
+
+        if(!bonusUsed && !isNaN(superLikes)){
+
+            participants[index].likes += superLikes;
+
+            localStorage.setItem(
+                "bonusUsed",
+                "true"
+            );
+
+            alert(
+                "🔥 Quiz Bonus +" +
+                superLikes +
+                " Likes"
+            );
+
+        }
+
+        /* NORMAL LIKE */
+
+        else{
+
+            participants[index].likes++;
+
+            alert("❤️ +1 Like");
+
+        }
+
+        /* SAVE */
+
+        localStorage.setItem(
+            "participants",
+            JSON.stringify(participants)
+        );
+
+        /* UPDATE */
 
         btn.querySelector("span").innerText =
         participants[index].likes;
+
     }
 
 });
-
 // COMMENT SYSTEM
 document.addEventListener("click", function(e){
 
@@ -365,6 +508,37 @@ document.addEventListener("click", function(e){
             list.appendChild(li);
             input.value = "";
         }
+    }
+
+});
+/* DELETE SYSTEM */
+
+document.addEventListener("click", function(e){
+
+    if(e.target.closest(".delete-btn")){
+
+        let index =
+        e.target.closest(".delete-btn")
+        .getAttribute("data-index");
+
+        let confirmDelete =
+        confirm(
+            "Delete this performance?"
+        );
+
+        if(confirmDelete){
+
+            participants.splice(index,1);
+
+            localStorage.setItem(
+                "participants",
+                JSON.stringify(participants)
+            );
+
+            location.reload();
+
+        }
+
     }
 
 });

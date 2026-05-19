@@ -12,7 +12,9 @@ body{
 
 /* NAVBAR */
 
+
 nav{
+    
 
     position: sticky;
 
@@ -57,7 +59,7 @@ nav ul li a{
 
     transition: 0.3s;
 
-    font-size: 17px;
+    font-size: 2opx;
 }
 
 nav ul li a:hover{

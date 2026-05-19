@@ -41,28 +41,7 @@ nav{
     z-index:1000;
 }
 
-.logo{
-    color:white;
-    font-size:24px;
-    font-weight:bold;
-}
 
-nav ul{
-    display:flex;
-    list-style:none;
-    gap:20px;
-}
-
-nav ul li a{
-    color:white;
-    text-decoration:none;
-    font-weight:bold;
-    transition:0.3s;
-}
-
-nav ul li a:hover{
-    color:#ff4081;
-}
 
 /* ================= CONTAINER ================= */
 
@@ -175,10 +154,13 @@ button:hover{
 /* ================= FOOTER ================= */
 
 footer{
+    background: black;
     width:100%;
     text-align:center;
-    margin-top:40px;
-    padding:20px 0;
+    margin:70px;
+    margin-left: 0px;
+    margin-right: 0px;
+    padding:20px 20px 20px 20px;
     color:white;
 }
 
@@ -193,6 +175,122 @@ footer{
     nav{
         flex-direction:column;
         gap:10px;
+    }
+
+}
+/* ================= RESPONSIVE ================= */
+
+@media(max-width:768px){
+
+    body{
+
+        padding:15px;
+    }
+
+    /* NAVBAR */
+
+    nav{
+
+        flex-direction:column;
+
+        gap:15px;
+
+        padding:15px;
+    }
+
+    nav ul{
+
+        flex-wrap:wrap;
+
+        justify-content:center;
+
+        gap:12px;
+    }
+
+    /* FORM CONTAINER */
+
+    .container{
+
+        width:100%;
+
+        padding:25px 18px;
+
+        margin-top:100px;
+    }
+
+    /* ROWS */
+
+    .row{
+
+        grid-template-columns:1fr;
+    }
+
+    /* HEADINGS */
+
+    h1{
+
+        font-size:28px;
+    }
+
+    .subtitle{
+
+        font-size:15px;
+    }
+
+    /* INPUTS */
+
+    input,
+    select,
+    textarea{
+
+        font-size:14px;
+    }
+
+    /* VIDEO */
+
+    video{
+
+        height:auto;
+    }
+
+    /* BUTTON */
+
+    button{
+
+        width:100%;
+    }
+
+    footer{
+
+        font-size:14px;
+
+        padding:18px;
+    }
+
+}
+
+/* SMALL MOBILE */
+
+@media(max-width:480px){
+
+    .container{
+
+        padding:20px 15px;
+    }
+
+    h1{
+
+        font-size:24px;
+    }
+
+    .logo{
+
+        font-size:22px;
+    }
+
+    nav ul li a{
+
+        font-size:14px;
     }
 
 }
@@ -330,6 +428,45 @@ type="text"
 id="fees"
 readonly
 placeholder="Select category first"
+>
+
+</div>
+<!-- PAYMENT METHOD -->
+
+<div class="input-group">
+
+<label>Select Payment Method</label>
+
+<select id="paymentMethod" required>
+
+<option value="">
+Choose Payment Method
+</option>
+
+<option>UPI</option>
+
+<option>Credit Card</option>
+
+<option>Debit Card</option>
+
+<option>Net Banking</option>
+
+<option>Cash On Audition</option>
+
+</select>
+
+</div>
+
+<!-- PAYMENT DETAILS -->
+
+<div class="input-group">
+
+<label>Payment Details</label>
+
+<input
+type="text"
+id="paymentDetails"
+placeholder="Enter UPI ID or Card Number"
 >
 
 </div>
@@ -488,6 +625,55 @@ categorySelect.addEventListener("change", function(){
     else{
 
         fees.value = "";
+
+    }
+
+});
+// PAYMENT METHOD
+
+const paymentMethod =
+document.getElementById("paymentMethod");
+
+const paymentDetails =
+document.getElementById("paymentDetails");
+
+paymentMethod.addEventListener("change", function(){
+
+    if(paymentMethod.value === "UPI"){
+
+        paymentDetails.placeholder =
+        "Enter UPI ID";
+
+    }
+
+    else if(
+        paymentMethod.value === "Credit Card" ||
+        paymentMethod.value === "Debit Card"
+    ){
+
+        paymentDetails.placeholder =
+        "Enter Card Number";
+
+    }
+
+    else if(paymentMethod.value === "Net Banking"){
+
+        paymentDetails.placeholder =
+        "Enter Bank Name";
+
+    }
+
+    else if(paymentMethod.value === "Cash On Audition"){
+
+        paymentDetails.placeholder =
+        "Pay during audition day";
+
+    }
+
+    else{
+
+        paymentDetails.placeholder =
+        "Enter Payment Details";
 
     }
 
@@ -814,7 +1000,6 @@ form.addEventListener("submit", function(e){
 
 </script>
 
-</script>
 
 </body>
 </html>
